@@ -4,6 +4,7 @@ const cors = require('cors')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const {v4:uuidv4} = require('uuid')
+require('dotenv').config();
 const app = express()
 
 app.use(express.json())
@@ -112,6 +113,8 @@ app.post('/login', async(request, response) => {
         const verifyPassword = await bcrypt.compare(password, checkUserInDB[0].password)
         if(verifyPassword){
             const token = jwt.sign({userId: checkUserInDB[0]._id }, 'MY_SECRET_TOKEN')
+            // const newToken = jwt.sign({ userId: 1 }, process.env.JWT_SECRET, { expiresIn: '2h' });
+            // console.log(newToken)
             response.status(201)
             response.send({jwtToken: token})
         }
