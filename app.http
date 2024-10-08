@@ -1,0 +1,185 @@
+
+API-1 Create New User
+###
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+    "name": "ravi",
+    "email": "ravi@gmail.com",
+    "password": "ravi@123"
+}
+
+// API-2 Login Existing User
+
+###
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "email": "ravi@gmail.com",
+    "password": "ravi@123"
+}
+
+// API-3 Update Existing User Details
+
+###
+PUT http://localhost:3000/profile
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzAzYTBmMzEyMDk3YjIyOTdiOTgxZDUiLCJpYXQiOjE3MjgzMDAwODh9.HBHsF1VmKGRidxo5SdTLyxV6Pm4xTS6ybI0TsYJC9iY
+
+Content-Type: application/json
+
+{
+    "name": "ravi",
+    "email": "ravi@gmail.com",
+    "phone": "7894561230",
+    "addresses": [
+        {
+            "street": "Kukatpally",
+            "city": "Hyderabad",
+            "postalCode": "500090"
+        },
+        {
+            "street": "JNTU",
+            "city": "Hyderabad",
+            "postalCode": "500095"
+        }
+    ]
+}
+
+// API-4 Get User Details
+
+###
+GET http://localhost:3000/profile
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzAzYTBmMzEyMDk3YjIyOTdiOTgxZDUiLCJpYXQiOjE3MjgzMDA3NDJ9.ZtBC8JK-IJMunmLHeDIClMU852j7nqZbJurk88ENyEo
+
+
+// API-5 Create New Restaurant Account
+###
+
+POST http://localhost:3000/restaurants
+Content-Type: application/json
+
+{
+    "name": "My Friends",
+    "location": "Alwal",
+    "password": "myfriends@123"
+}
+
+// API-6 Restaurant Admin Login
+###
+
+POST http://localhost:3000/restaurants/admin
+Content-Type: application/json
+
+{
+    "name": "My Friends",
+    "password": "myfriends@123"
+}
+
+// API-7 Get Restaurant Details
+###
+
+GET http://localhost:3000/restaurants
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzA0Y2Q2NmMxMmIwNWVjODk0MTVjZjgiLCJpYXQiOjE3MjgzNjgwMzZ9.GHe6d0AYKmPah23sZRiQm6SofZm-fnbTs3A124Ky_FY
+
+// API-8 Update Restaurant Details
+###
+
+PUT http://localhost:3000/restaurants/6704cd66c12b05ec89415cf8
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzA0Y2Q2NmMxMmIwNWVjODk0MTVjZjgiLCJpYXQiOjE3MjgzNjgwMzZ9.GHe6d0AYKmPah23sZRiQm6SofZm-fnbTs3A124Ky_FY
+
+Content-Type:application/json
+
+{
+    "name": "My Friends Circle",
+    "location": "Kompally"
+}
+
+
+// API-9 Add Items To Restaurant Menu
+
+###
+
+POST http://localhost:3000/restaurants/6704cd66c12b05ec89415cf8/menu
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzA0Y2Q2NmMxMmIwNWVjODk0MTVjZjgiLCJpYXQiOjE3MjgzNjgwMzZ9.GHe6d0AYKmPah23sZRiQm6SofZm-fnbTs3A124Ky_FY
+
+Content-Type: application/json
+
+{
+    "dishName": "Chicken Dum Biryani",
+    "description": "A classic aromatic dish of Mughal nizams traditionally cooked using dum pukht method. The ingredients are loaded and slow cooked which allows the steamed to works its magic and tenderized the meat in its own juices while flavoring the rice. Served along with mirchi ka salan, raita and salad",
+    "price": 200,
+    "category": "Main Course",
+    "availability": "Yes"
+}
+
+// API-10 Update a Specific Menu Item Details
+
+###
+
+PUT http://localhost:3000/restaurants/6704cd66c12b05ec89415cf8/menu/72e7c799-eb0e-4b62-ac80-b19b48d4a07f
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzA0Y2Q2NmMxMmIwNWVjODk0MTVjZjgiLCJpYXQiOjE3MjgzNjgwMzZ9.GHe6d0AYKmPah23sZRiQm6SofZm-fnbTs3A124Ky_FY
+
+Content-Type: application/json
+
+{
+    "price": 250
+}
+
+// API-11 Place a New Order
+
+POST http://localhost:3000/orders
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzAzYTBmMzEyMDk3YjIyOTdiOTgxZDUiLCJpYXQiOjE3MjgzMDA3NDJ9.ZtBC8JK-IJMunmLHeDIClMU852j7nqZbJurk88ENyEo
+
+Content-Type: application/json
+
+{   
+    "restaurantName": "My Friends Circle",
+    "orderDetails": [
+        {
+            "dishName": "Chicken Dum Biryani",
+            "quantity": 2
+        },
+        {
+            "dishName": "Chilli Paneer",
+            "quantity": 2
+        }
+    ]
+}
+
+// API - 12 Get Order Details Based on Order Id
+
+###
+
+GET http://localhost:3000/orders/5d349109-27ed-41a6-9564-a85617f4f816
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzAzYTBmMzEyMDk3YjIyOTdiOTgxZDUiLCJpYXQiOjE3MjgzMDA3NDJ9.ZtBC8JK-IJMunmLHeDIClMU852j7nqZbJurk88ENyEo
+
+
+// API - 13 Update Order Status Details using the order Id (accessible only for restaurant admins)
+
+###
+
+PUT http://localhost:3000/orders/f61f21d9-dcd1-4053-96b3-e7ef2359a5f7/status
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzA0Y2Q2NmMxMmIwNWVjODk0MTVjZjgiLCJpYXQiOjE3MjgzNjgwMzZ9.GHe6d0AYKmPah23sZRiQm6SofZm-fnbTs3A124Ky_FY
+
+Content-Type: application/json
+
+{
+    "orderStatus": "Confirmed"
+}
+
+
+// API - 14 List all the orders of the loggedin User
+
+GET http://localhost:3000/orders
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NzAzYTBmMzEyMDk3YjIyOTdiOTgxZDUiLCJpYXQiOjE3MjgzMDA3NDJ9.ZtBC8JK-IJMunmLHeDIClMU852j7nqZbJurk88ENyEo
