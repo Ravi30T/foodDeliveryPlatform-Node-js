@@ -3,7 +3,7 @@
 
 ## Description: 
 
-The Online Food Order application is a backend service that allows users to register, login, manage their profiles, and place orders from various restaurants.
+The Online Food Delivery application is a backend service that allows users to register, login, manage their profiles, and place orders from various restaurants.
 It provides an API for restaurant admins to manage their details, menus, and orders.
 
 ## Prequisites:
